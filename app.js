@@ -1,62 +1,48 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const qrCodes = ['qr1', 'qr2', 'qr3', 'qr4', 'qr5', 'qr6', 'qr7', 'qr8', 'qr9', 'qr10'];
-    let boxes = Array.from({ length: qrCodes.length }, () => null);
-    let scanning = false;
-
-    const video = document.getElementById('preview');
-    let scanner;
-
-    document.getElementById('startScanButton').addEventListener('click', function () {
-        if (!scanning) {
-            startScanning();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <style>
+        #preview {
+            width: 100%;
+            height: auto;
         }
-    });
 
-    function startScanning() {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-            .then(function (stream) {
-                scanning = true;
-                video.srcObject = stream;
-                scanner = new Instascan.Scanner({ video: video });
-                scanner.addListener('scan', function (content) {
-                    const index = qrCodes.indexOf(content);
-                    if (index !== -1) {
-                        handleScannedQR(index);
-                    } else {
-                        alert('Invalid QR Code');
-                    }
-                });
-                Instascan.Camera.getCameras().then(function (cameras) {
-                    const backCamera = cameras.find(camera => camera.name.includes('back'));
-                    if (backCamera) {
-                        scanner.start(backCamera);
-                    } else {
-                        alert('Back camera not found.');
-                    }
-                }).catch(function (e) {
-                    console.error(e);
-                });
-            })
-            .catch(function (error) {
-                console.error('getUserMedia error:', error);
-            });
-    }
-
-    function handleScannedQR(index) {
-        const availableBoxIndex = boxes.indexOf(null);
-        if (availableBoxIndex !== -1) {
-            boxes[availableBoxIndex] = qrCodes[index];
-            updateBoxColors();
-        } else {
-            alert('All boxes are occupied. Cannot add more QR codes.');
+        .box {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            display: inline-block;
+            border: 1px solid black;
         }
-    }
 
-    function updateBoxColors() {
-        for (let i = 0; i < qrCodes.length; i++) {
-            const box = document.getElementById(`box${i + 1}`);
-            const qrCode = boxes[i];
-            box.style.backgroundColor = qrCode ? 'red' : 'green';
+        #toggleSwitch {
+            margin-top: 10px;
+            display: block;
         }
-    }
-});
+    </style>
+</head>
+<body>
+    <h1>QR Code Scanner</h1>
+    <label for="toggleSwitch">Toggle Camera</label>
+    <input type="checkbox" id="toggleSwitch">
+    <video id="preview" playsinline autoplay muted></video>
+    <div id="boxes">
+        <!-- Create 10 boxes with unique IDs -->
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+        <div id="box6" class="box"></div>
+        <div id="box7" class="box"></div>
+        <div id="box8" class="box"></div>
+        <div id="box9" class="box"></div>
+        <div id="box10" class="box"></div>
+    </div>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
