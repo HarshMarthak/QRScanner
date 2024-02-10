@@ -23,18 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function startScanning() {
-        Instascan.Camera.getCameras().then(function (cameras) {
-            const backCamera = cameras.find(camera => camera.name.includes('back'));
-            if (backCamera) {
-                scanning = true;
-                scanner.start(backCamera);
-            } else {
-                alert('Back camera not found.');
-            }
-        }).catch(function (e) {
-            console.error(e);
-        });
-    }
+    Instascan.Camera.getCameras().then(function (cameras) {
+        const backCamera = cameras.find(camera => camera.name.includes('back'));
+        if (backCamera) {
+            scanning = true;
+            scanner.start({ video: backCamera, facingMode: 'environment' });
+        } else {
+            alert('Back camera not found.');
+        }
+    }).catch(function (e) {
+        console.error(e);
+    });
+}
 
     function toggleBoxState(index) {
         boxes[index] = boxes[index] === 'green' ? 'red' : 'green';
