@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="logo"><img src="logo.png" alt="Logo" class="logo"></div>
-        
+        <div id="qrScanner"></div>
 
         <section>
             <div class="welcome" id="welcomeMessage"></div>
@@ -28,7 +28,12 @@
                 <div class="cup-box" id="cup10">CUP-10</div>
             </div>
 
-            <div id="qrScanner"></div>
+            
+
+<button id="activateCamera" onclick="activateCamera()">Activate Camera</button>
+
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script src="script.js"></script>
         </section>
     </div>
 
