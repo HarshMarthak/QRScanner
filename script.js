@@ -53,6 +53,18 @@ Instascan.Camera.getCameras().then(function (cameras) {
     }
 });
 
+// Function to activate the camera manually
+function activateCamera() {
+    Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+            scanner.start(cameras[0]); // Use the first available camera
+        } else {
+            console.error('No cameras found.');
+        }
+    });
+}
+
+
 // Function to toggle box color
 function toggleBoxColor(box) {
     if (box.style.backgroundColor === 'red') {
