@@ -1,0 +1,100 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    text-align: center; /* Center the content within the container */
+}
+
+.logo {
+    width: 140px; /* Adjust the logo size as needed */
+    height: 140px;
+    margin-right: 10px;
+    border-radius: 50%;
+    margin-bottom: 20px; /* Add some space between logo and header */
+    display: block; /* Make the logo a block-level element */
+    margin: 0 auto; /* Center the logo horizontally */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    animation: fadeIn 0.8s ease-out; /* Fade-in animation */
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-out; /* Fade-in animation */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button.styled-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button.styled-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* New styling for cup-boxes */
+.cup-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cup-box {
+    width: 48%; /* Two boxes in a row with a small gap */
+    height: 80px;
+    background-color: #c0eb75; /* Light green */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
