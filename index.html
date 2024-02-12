@@ -3,46 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner</title>
-    <style>
-        #preview {
-            width: 100%;
-            height: auto;
-        }
-
-        .box {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            display: inline-block;
-            border: 1px solid black;
-        }
-
-        #toggleSwitch {
-            margin-top: 10px;
-            display: block;
-        }
-    </style>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>QR Code Scanner</h1>
-    <label for="toggleSwitch">Toggle Camera</label>
-    <input type="checkbox" id="toggleSwitch">
-    <video id="preview" playsinline autoplay muted></video>
-    <div id="boxes">
-        <!-- Create 10 boxes with unique IDs -->
-        <div id="box1" class="box"></div>
-        <div id="box2" class="box"></div>
-        <div id="box3" class="box"></div>
-        <div id="box4" class="box"></div>
-        <div id="box5" class="box"></div>
-        <div id="box6" class="box"></div>
-        <div id="box7" class="box"></div>
-        <div id="box8" class="box"></div>
-        <div id="box9" class="box"></div>
-        <div id="box10" class="box"></div>
+    <div class="container">
+        <div class="logo"><img src="logo.png" alt="Logo" class="logo"></div>
+        <header>
+            <h1>User Registration</h1>
+        </header>
+
+        <section>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber">
+
+                <button type="button" onclick="registerUser()" class="styled-button">Register</button>
+            </form>
+        </section>
     </div>
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <script src="app.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
